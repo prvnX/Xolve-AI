@@ -14,6 +14,10 @@ st.image("xolve.png")
 st.markdown(
     """
     <style>
+        * {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: #000000;  /* Change the background color here */
+        }
         .title  {
             font-size: 100px;  /* Change the font size here */
             font-weight: bold;
@@ -45,13 +49,51 @@ st.markdown(
             text-align: center;
             border-radius: 15px;
             background-color: #1E90FF;
-        }
+\        }
         img{
             border-radius: 15px;
         
         }
+        .bottom-txt {
+            font-size: 20px;  /* Change the font size here */
+            font-family: 'Ubuntu', sans-serif;
+            color: #ffffff;   /* Change the font color here */
+            text-align: center;
+            margin-top: 0;
+        }
+        hr {
+            width: 50%;
+            margin:100px auto;
+        }
+        .footer {
 
+            font-size: 12px;  /* Change the font size here */
+            font-family: 'Ubuntu', sans-serif;
+            color: #c30010;   /* Change the font color here */
+            text-align: center;
+            padding: auto;
+        }
+
+        .footer p {
+            font-size: 20px;  /* Change the font size here */
+            font-family: 'calibri', sans-serif;
+            color: #bf77f6;   /* Change the font color here */
+            text-align: center;
+        }
+        .footer .follow {
+            font-size: 16px;  /* Change the font size here */
+            font-family: 'Ubuntu', sans-serif;
+            color: #ffffff;
+
+        }
+        .footer a {
+            font-size: 16px;  /* Change the font size here */
+            font-family: 'Ubuntu', sans-serif;
+            color: #0000FF;   /* Change the font color here */
+            text-decoration: none;
+        }
     </style>
+    
     """, unsafe_allow_html=True
 )
 col1, col2 = st.columns([1, 1])
@@ -62,6 +104,11 @@ with col1:
 with col2:
     st.markdown(' <div class="answer-title"> Answer </div>', unsafe_allow_html=True)
     output_text_area = st.subheader("")
+
+st.markdown('<hr><p class="bottom-txt" >Draw a math problem on the screen using your finger and Xolve will solve it for you!</p>', unsafe_allow_html=True)
+st.image("guesture_instruction.png")
+st.markdown('<hr><div class="footer" ><p>Made By prvnX <br></p> <p class="follow">Follow Me on <br><br> <a href="https://github.com/prvnX">Github</a> | <a href="https://www.linkedin.com/in/praveen-kahatapitiya-560708171/"> LinkedIn </a> | <a href="https://web.facebook.com/praveenmadushan.kahatapitiya"> FaceBook </a> </p></div>', unsafe_allow_html=True)
+
 
 # Load environment variables from .env file
 load_dotenv()
@@ -105,7 +152,7 @@ def sendToGemini(model, canvas, fingers):
     if fingers == [1, 1, 1, 1, 0]:
         pil_img = Image.fromarray(canvas)
         response = model.generate_content(["Please solve the following math problem step-by-step: \
-1. Start by giving the short answer (just the result). \
+1. Start by giving the answer (just the answer). \
 2. Add a line break here and provide a brief explanation of the solution.\
 3. Next, restate the question for clarity. \
 4. Then, provide a detailed, step-by-step explanation of how to solve the problem, including any formulas or concepts used. Use 'Step 1:', 'Step 2:', etc., for each step. \
@@ -137,5 +184,4 @@ while run:
     
 
 # Release camera when done
-st.write("Hello")
 cap.release()
