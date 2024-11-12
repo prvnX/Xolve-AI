@@ -16,36 +16,36 @@ st.markdown(
     <style>
         * {
             font-family: 'Ubuntu', sans-serif;
-            background-color: #000000;  /* Change the background color here */
+            background-color: #000000; 
         }
         .title  {
-            font-size: 100px;  /* Change the font size here */
+            font-size: 100px;  
             font-weight: bold;
             font-family: 'Ubuntu', sans-serif;
-            color: #ffffff;   /* Change the font color here */
+            color: #ffffff;   
             text-align: center;
             margin-top: 0;
         }
         .title p {
-            font-size: 20px;  /* Change the font size here */
+            font-size: 20px;  
             font-weight: bold;
             font-family: 'Ubuntu', sans-serif;
-            color: #ffffff;   /* Change the font color here */
+            color: #ffffff;  
             text-align: center;
         }
         .answer-title {
-            font-size: 50px;  /* Change the font size here */
+            font-size: 50px;  
             font-weight: bold;
             font-family: 'ubuntu', sans-serif;
-            color: #ffffff;   /* Change the font color here */
+            color: #ffffff;   
             font-weight: 500;
             text-align: center;
         }
         subheader {
-            font-size: 30px;  /* Change the font size here */
+            font-size: 30px;  
             font-weight: bold;
             font-family: 'Ubuntu', sans-serif;
-            color: #ffffff;   /* Change the font color here */
+            color: #ffffff;   
             text-align: center;
             border-radius: 15px;
             background-color: #1E90FF;
@@ -55,9 +55,9 @@ st.markdown(
         
         }
         .bottom-txt {
-            font-size: 20px;  /* Change the font size here */
+            font-size: 20px;  
             font-family: 'Ubuntu', sans-serif;
-            color: #ffffff;   /* Change the font color here */
+            color: #ffffff;  
             text-align: center;
             margin-top: 0;
         }
@@ -67,29 +67,29 @@ st.markdown(
         }
         .footer {
 
-            font-size: 12px;  /* Change the font size here */
+            font-size: 12px; 
             font-family: 'Ubuntu', sans-serif;
-            color: #c30010;   /* Change the font color here */
+            color: #c30010;  
             text-align: center;
             padding: auto;
         }
 
         .footer p {
-            font-size: 20px;  /* Change the font size here */
+            font-size: 20px; 
             font-family: 'calibri', sans-serif;
-            color: #bf77f6;   /* Change the font color here */
+            color: #bf77f6; 
             text-align: center;
         }
         .footer .follow {
-            font-size: 16px;  /* Change the font size here */
+            font-size: 16px; 
             font-family: 'Ubuntu', sans-serif;
             color: #ffffff;
 
         }
         .footer a {
-            font-size: 16px;  /* Change the font size here */
+            font-size: 16px;  
             font-family: 'Ubuntu', sans-serif;
-            color: #0000FF;   /* Change the font color here */
+            color: #0000FF;  
             text-decoration: none;
         }
     </style>
@@ -148,6 +148,7 @@ def draw(img, handInfo, prev_Pos, canvas):
         prev_Pos = None
     return current_Pos
 
+#Generate answer using Gemini
 def sendToGemini(model, canvas, fingers):
     if fingers == [1, 1, 1, 1, 0]:
         pil_img = Image.fromarray(canvas)
